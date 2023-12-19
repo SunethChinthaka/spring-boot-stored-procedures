@@ -5,16 +5,10 @@ import lombok.Data;
 
 @Entity
 @Data
-@NamedStoredProcedureQueries({
-        @NamedStoredProcedureQuery(name = "firstSP", procedureName = "getTickets"),
-        @NamedStoredProcedureQuery(name = "secondSP", procedureName = "getTicketsByCategory", parameters = {
-                @StoredProcedureParameter(mode = ParameterMode.IN, name = "t_category", type = String.class)
-        })
+@NamedStoredProcedureQuery(name = "firstSP", procedureName = "getTickets")
+@NamedStoredProcedureQuery(name = "secondSP", procedureName = "getTicketsByCategory", parameters = {
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "t_category", type = String.class)
 })
-
-//@NamedStoredProcedureQuery(name = "secondSP", procedureName = "getTicketsByCategory", parameters = {
-//        @StoredProcedureParameter(mode = ParameterMode.IN, name = "t_category", type = String.class)
-//})
 public class Ticket {
     @Id
     private int id;
